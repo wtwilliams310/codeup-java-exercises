@@ -112,28 +112,28 @@ public class ControlFlowExercises {
 //        } while(confirmation);
 
 
-        boolean confirmation;
-        do {
-            System.out.print("Enter a grade: ");
-            int input = scanner.nextInt();
-            if(input >= 88) {
-                System.out.println("Grade = A");
-            } else if(input >= 80 || input <= 87){
-                System.out.println("Grade = B");
-            } else if(input >= 67 || input <= 79){
-                System.out.println("Grade = C");
-            } else if(input >= 60 || input <= 66){
-                System.out.println("Grade = D");
-            } else {
-                System.out.println("Grade = F");
+//        boolean confirmation;
+//        do {
+//            System.out.print("Enter a grade: ");
+//            int input = scanner.nextInt();
+//            if(input >= 88) {
+//                System.out.println("Grade = A");
+//            } else if(input >= 80 || input <= 87){
+//                System.out.println("Grade = B");
+//            } else if(input >= 67 || input <= 79){
+//                System.out.println("Grade = C");
+//            } else if(input >= 60 || input <= 66){
+//                System.out.println("Grade = D");
+//            } else {
+//                System.out.println("Grade = F");
+//
+//            }
 
-            }
+//            System.out.println("Would you like to continue? [y/n]");
+//            String response = scanner.next();
 
-            System.out.println("Would you like to continue? [y/n]");
-            String response = scanner.next();
-
-            confirmation = response.equals("y");
-        }while(confirmation);
+//            confirmation = response.equals("y");
+//        }while(confirmation);
 
 
     }
