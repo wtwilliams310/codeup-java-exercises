@@ -39,12 +39,16 @@ public class ControlFlowExercises {
         // 1.b.iii
 
 //        long x = 2;
-//
-//
-//
 //        do {
 //            System.out.println(x);
 //            x *= x;
+//        } while(x < 1e6);
+
+        //With Math.pow
+//        double x = 2;
+//        do {
+//            System.out.println((int) x);
+//            x = Math.pow(x, 2);
 //        } while(x < 1e6);
 
         //1.b.v.
