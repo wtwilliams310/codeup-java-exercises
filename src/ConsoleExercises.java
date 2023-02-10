@@ -14,6 +14,9 @@ public class ConsoleExercises {
 //        System.out.println("You entered: --> \"" + userInput + "\" <--");
 
 //        double pi = 3.14159;
+
+//        String message = String.valueOf(System.out.format("The value of pi is approximately %.3f%n", pi));
+
 //
 //        System.out.format("The value of pi is approximately %.3f%n", pi);
 
@@ -39,7 +42,7 @@ public class ConsoleExercises {
         String input2 = in.next();
         String input3 = in.next();
 
-        System.out.printf("%s\n%s\n%s", input1, input2, input3);
+        System.out.printf("%s%nn%s%n%s", input1, input2, input3);
         */
 
         // #3
@@ -63,6 +66,10 @@ public class ConsoleExercises {
 
 
         System.out.print("Enter the width of the room: ");
+
+        //using parse
+//        System.out.println("Enter the width of the room: ");
+//        double width = Double.parseDouble(in.nextLine());
 
         float width = in.nextFloat();
 
