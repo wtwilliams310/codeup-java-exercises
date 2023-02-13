@@ -22,7 +22,6 @@ public class Bob {
                 input = scanner.nextLine();
             } else if (input.equals("bye")) {
                 System.out.println("Please come back!!!");
-//                count = -1;
             } else  {
                 System.out.println("Fine. Be that way!");
                 count++;
