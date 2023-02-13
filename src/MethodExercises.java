@@ -12,7 +12,7 @@ public class MethodExercises {
 
 //        factorial();
 
-//        diceRoll();
+        diceRoll();
 
 
     }
@@ -138,9 +138,9 @@ public class MethodExercises {
 
         System.out.print("Press [r] to roll the dice");
         String roll = scanner.next();
-        String empty = "";
 
-        if(roll.equals("y")) {
+
+        if(roll.equals("r")) {
             int randomDice1 = (int) Math.floor(Math.random() *(diceSides) + 1);
             int randomDice2 = (int) Math.floor(Math.random() *(diceSides) + 1);
 
