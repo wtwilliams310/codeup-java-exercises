@@ -4,11 +4,11 @@ public class HelloWorld {
 
         int myFavoriteNumber = 23;
 
-        String myString = "This is a string.";
-        System.out.println(myString);
-
-        float myNumber = 3.14f;
-        System.out.println(myNumber);
+//        String myString = "This is a string.";
+//        System.out.println(myString);
+//
+//        float myNumber = 3.14f;
+//        System.out.println(myNumber);
 
 //        int x = 5;
 //        System.out.println(x++);
@@ -30,17 +30,16 @@ public class HelloWorld {
 //        y *= x;
 //        System.out.println(y);
 
-        int x = 10;
-        int y = 2;
-        x /= y;
-        y -= x;
-        System.out.println(x);
-        System.out.println(y);
-
-        byte test1 = 127;
-        ++test1;
-        System.out.println(test1);
-
+//        int x = 10;
+//        int y = 2;
+//        x /= y;
+//        y -= x;
+//        System.out.println(x);
+//        System.out.println(y);
+//
+//        byte test1 = 127;
+//        ++test1;
+//        System.out.println(test1);
 
 
 
@@ -49,4 +48,7 @@ public class HelloWorld {
 
 
     }
+
+
+
 }
