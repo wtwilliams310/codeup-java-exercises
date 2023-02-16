@@ -1,7 +1,30 @@
+import java.util.Arrays;
+
 public class Person {
     private String name;
 
+    // TODO FROM Justin Method to change age of all people to + 1
+//    public static void makePeopleOlder(Person[] people){
+//        for(Person person : people) {
+//                person.age = person.age + 1; <----- or
+//            person.setAge(person.getAge() + 1);
+//        }
+//    }
+//    print agees
+//    public static void printPeopleAges(Person[] people){
+//        for(Person person : people) {
+//            System.out.println(person.age);
+//        }
+//    }
 
+
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                '}';
+    }
 
     public String getName() {
         return name;
@@ -18,6 +41,14 @@ public class Person {
     public Person(String name) {
         this.name = name;
     }
+
+    public static Person[] addPerson(Person[] personArray, Person person){
+        Person[] newPersonArray = Arrays.copyOf(personArray, personArray.length + 1);
+        newPersonArray[newPersonArray.length -1] = person;
+        return newPersonArray;
+    }
+
+
 
     public static void main(String[] args) {
 //        Person person1 = new Person("Titus");
