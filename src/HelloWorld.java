@@ -42,10 +42,31 @@ public class HelloWorld {
 //        System.out.println(test1);
 
 
+//        double[] numbers = {1, 2, 3, 4, 5};
+//        System.out.println(numbers[1]);
 
+        double[] numbers = new double[5];
 
+        numbers[0] = 1;
+        numbers[1] = 2;
+        numbers[2] = 3;
+        numbers[3] = 4;
+        numbers[4] = 5;
 
+        System.out.println(numbers[3]);
 
+        double count = 0;
+        // for loop
+//        for(int i=0; i < numbers.length; i++){
+//            count += numbers[i];
+//        }
+//        System.out.println(count);
+
+        //Enhanced loop
+        for(double number: numbers) {
+            count += number;
+        }
+        System.out.println(count);
 
     }
 
