@@ -5,20 +5,20 @@ public class ArraysExercises {
         int[] numbers = {1, 2, 3, 4};
         System.out.println(Arrays.toString(numbers));
 
-        Person[] personObj = new Person[3];
+        Person[] personArray = new Person[3];
 
-        personObj[0] = new Person("Titus");
-        personObj[1] = new Person("Hung");
-        personObj[2] = new Person("Horace");
+        personArray[0] = new Person("Titus");
+        personArray[1] = new Person("Hung");
+        personArray[2] = new Person("Horace");
 
         Person newPerson1 = new Person("Sarah");
 
-        for(Person person : personObj) {
+        for(Person person : personArray) {
             System.out.println(person.getName());
         }
 
         // static method is located in Person class
-        System.out.println(Arrays.toString(Person.addPerson(personObj, newPerson1)));
+        System.out.println(Arrays.toString(Person.addPerson(personArray, newPerson1)));
 
 
 //
