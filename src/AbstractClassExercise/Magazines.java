@@ -11,3 +11,8 @@ public class Magazines extends Media{
         System.out.println("Use within any open seating area.");
     }
 }
+
+
+/*
+
+*/
