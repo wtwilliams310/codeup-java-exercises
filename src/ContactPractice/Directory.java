@@ -1,21 +1,136 @@
 package ContactPractice;
 
+
 import java.io.*;
 import java.util.*;
+import java.io.FileNotFoundException;
 
 public class Directory {
 
 
-    private String name = "";
-    private String number = "";
-    private HashMap<String, String> directory = new HashMap<String, String>();
+    public static void prompt(String fileName){
+        Scanner reader = new Scanner(System.in);
+        System.out.println("");
 
-    public Directory(String names) throws FileNotFoundException {
-        // reading file
-            Scanner read = new Scanner(new File("names.txt"));
+        System.out.println("""
+                1. View contacts.
+                2. Add a new contact.
+                3. Search a contact by name.
+                4. Delete an existing contact.
+                5. Exit.
+                Enter an option (1, 2, 3, 4 or 5):
+                """);
+            String result = reader.next();
+        if(result.equals("1")){
+            displayAllContacts(fileName);
+           prompt(fileName);
+        } else if (result.equals("2")) {
+            System.out.println("Add contact information:");
+            System.out.print("Enter FIRST and LAST name: ");
+            String name = reader.next();
+            System.out.print("");
+            System.out.print("Enter phone number: ");
+            String number = reader.next();
+            System.out.print("");
+            addContactToFile(fileName, name, number);
+            prompt(fileName);
+        } else if(result.equals("3")) {
+            System.out.println("Enter the name of contact: ");
+            String name = reader.next();
+            System.out.println("");
+            searchContacts(fileName, name);
+            prompt(fileName);
+        } else if(result.equals("4")) {
+            System.out.println("Enter the FIRST and LAST name of contact: ");
+            String name = reader.next();
+            System.out.println("");
+            deleteFromArrayList(fileName, name);
+            prompt(fileName);
+        } else if(result.equals("5")) {
+            System.out.println("Exiting...");
+        } else {
+            System.out.println("Please enter a valid choice");
+            prompt(fileName);
+        }
+
     }
 
 
+    public static void addContactToFile(String fileName, String name, String number) {
+        try {
+            FileWriter fw = new FileWriter(fileName, true);
+            BufferedWriter bw = new BufferedWriter(fw);
+            PrintWriter pw = new PrintWriter(bw);
+            pw.printf("%s | %s%n", name, number);
+            pw.flush();
+            pw.close();
+        }
+        catch (IOException ex){
+            System.out.println("Error - cannot write to file: " + fileName);
+        }
+    }
+
+
+
+    public static void displayAllContacts(String fileName) {
+        System.out.printf("""
+                
+                Name  |  Phone number
+                ------------------
+                """);
+        try {
+        File file = new File(fileName);
+        Scanner reader = new Scanner(file);
+        while(reader.hasNextLine()) {
+            String data = reader.nextLine();
+            System.out.println(data);
+        }
+            reader.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+    }
+
+
+    public static ArrayList<String> addContactsArrayList(String fileName) {
+        ArrayList<String> list = new ArrayList<>();
+        try {
+            File file = new File(fileName);
+            Scanner reader = new Scanner(file);
+            while(reader.hasNextLine()) {
+                list.add(reader.nextLine());
+            }
+            reader.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+        return list;
+
+    }
+
+    public static void deleteFromArrayList(String fileName, String search){
+        ArrayList<String> result = addContactsArrayList(fileName);
+        for(int i = 0; i < result.size();  i++){
+            if(result.get(i).contains(search)){
+                result.remove(i);
+                writeFile(fileName, result);
+            }
+        }
+    }
+
+    public static void searchContacts(String fileName, String search){
+        ArrayList<String> result = addContactsArrayList(fileName);
+        for(int i = 0; i < result.size();  i++){
+            if(result.get(i).contains(search)){
+                System.out.println(result.get(i));
+            }
+
+        }
+    }
+
+    // Create contacts .txt file
     public static void createFiles(File data){
         boolean result;
 
@@ -34,7 +149,7 @@ public class Directory {
     }
 
 
-
+    // Write to contacts file
     public static void writeFile(String fileName, ArrayList<String> data) {
         try {
             FileWriter fw = new FileWriter(fileName);
@@ -49,16 +164,16 @@ public class Directory {
         }
     }
 
-    public static void main(String[] args) {
-        // writing contact information
-        ArrayList<String> contacts = new ArrayList<>();
-
-        contacts.add("John Adams: 916-334-7767");
-        contacts.add("Abigail Smith: 886-345-7625");
-        contacts.add("Rita Hayworth: 887-898-8833");
-        contacts.add("Jerry Seinfeld: 298-646-1515");
-        contacts.add("Larry David: 310-567-5555");
-        contacts.add("George Costanza: 818-545-0978");
+    public static void main(String[] args) throws FileNotFoundException {
+        // Creating  contact information and empty arraylist to store contact info.
+//        ArrayList<String> contacts = new ArrayList<>();
+//
+//        contacts.add("John Adams: 916-334-7767");
+//        contacts.add("Abigail Smith: 886-345-7625");
+//        contacts.add("Rita Hayworth: 887-898-8833");
+//        contacts.add("Jerry Seinfeld: 298-646-1515");
+//        contacts.add("Larry David: 310-567-5555");
+//        contacts.add("George Costanza: 818-545-0978");
 
         // New file path
 //        File data = new File("/Users/tituswilliams/IdeaProjects/codeup-java-exercises/contacts.txt");
@@ -66,8 +181,30 @@ public class Directory {
 //        createFiles(data);
 
         // Write to contacts.txt file
-        writeFile("contacts.txt", contacts);
+//        writeFile("contacts.txt", contacts);
+
+        Directory phoneDirectory = new Directory();
+
+//        phoneDirectory.displayAllContacts("contacts.txt");
+
+//        System.out.println(phoneDirectory.addContactsArrayList("contacts.txt"));
+
+//        phoneDirectory.displayAllContacts("contacts.txt");
+
+//        phoneDirectory.deleteFromArrayList("contacts.txt", "Bill Adams");
+//        phoneDirectory.deleteFromArrayList("contacts.txt", "Alex Adams");
+
+
+//        phoneDirectory.addContactToFile("contacts.txt", "Bill Adams", "493-774-7009");
+//        phoneDirectory.addContactToFile("contacts.txt", "Alex Adams", "493-774-7009");
+
+//        phoneDirectory.searchContacts("contacts.txt", "Larry David");
+
+        phoneDirectory.prompt("contacts.txt");
+
     }
+
+
 
 
 
